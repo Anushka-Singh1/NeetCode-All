@@ -1,0 +1,25 @@
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+      // Create an unordered map to store anagrams
+        unordered_map<string, vector<string>>map;               
+       // Iterate over each string in the input vector
+           for(auto x: strs){
+       // Create a copy of the current string                 
+            string word=x;
+       // Sort the characters of the current string in ascending order     
+            sort(word.begin(),word.end());
+        // Add the sorted string as a key in the map and push the original string to the corresponding value vector      
+            map[word].push_back(x);
+        }
+        vector<vector<string>>ans;   // Create a 2D vector to store the final answer
+        for(auto x: map){             // Iterate over the key-value pairs in the unordered map
+           ans.push_back(x.second);   // Push the value vector (group of anagrams) into the final answer vector
+        }
+        return ans;
+
+    }
+};
+
+
+//In the code for (auto x : mp), x represents a key-value pair from the mp unordered map. In this context, x.first refers to the key (which is of type string), and x.second refers to the value (which is of type vector<string>) associated with that key.
