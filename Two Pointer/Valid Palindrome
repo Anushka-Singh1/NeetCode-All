@@ -1,0 +1,23 @@
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        stack<char>st;
+        string changedst;
+        for(char c: s){
+            if(isalnum(c)){
+                changedst +=tolower(c);
+            }
+        }
+        for(char c: changedst){
+            st.push(c);
+        }
+        for(char c: changedst){
+            if(c!=st.top()){
+            return false;
+        }
+        
+          st.pop();
+    }
+        return true;
+   } 
+};
