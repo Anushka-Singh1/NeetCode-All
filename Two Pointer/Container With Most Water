@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int n=height.size();
+        int maxWater=0;
+        
+        int left=0;
+        int right=n-1;
+
+        while(left<right){
+       int  currWater= min(height[left],height[right])*(right-left);
+       maxWater=max(currWater, maxWater);
+
+          if(height[left]<height[right]){    // to attain max area we need to move towards higher bars
+              left++;
+          }else{
+              right--;
+          }
+        }
+        return maxWater;
+    }
+};
